@@ -33,22 +33,20 @@ public class GameRunner {
                 System.out.println("Жаль, попробуем в другой раз!");
                 break;
             }
-            if (chose != 2 || chose != 1) {
-                System.out.println("Я Вас не понял. Нажмите цифру 1 или 2, пожалуйста");
-                chose = variants.nextInt();
-            }
+            System.out.println("Я Вас не понял. Нажмите цифру 1 или 2, пожалуйста");
+            chose = variants.nextInt();
         }
         int i;
         for (i = 0; i < 9; i++) System.out.println(rule[i]);
-        TimeUnit.SECONDS.sleep(3);
+        TimeUnit.SECONDS.sleep(1);
         System.out.println();
         System.out.println("Готовы? (нажмите 1, если да)");
         Scanner ready = new Scanner(System.in);
         int readyAnsw = ready.nextInt();
         if (readyAnsw == 1) {
             System.out.println("Поехали!");
-            TimeUnit.SECONDS.sleep(2);
-            while (pointPlayer < 3 && pointComputer < 3) {
+            TimeUnit.SECONDS.sleep(1);
+            while (GameLogic.pointPlayer < 3 && GameLogic.pointComputer < 3) {
                 System.out.println("Аль...");
                 TimeUnit.SECONDS.sleep(1);
                 System.out.println("Ман...");
@@ -63,22 +61,22 @@ public class GameRunner {
                 System.out.println("3. Бумага");
                 Scanner gameOne = new Scanner(System.in);
                 int answerOne = gameOne.nextInt();
-                if (answerOne == 1) redirectAnswer = "Камень";
-                if (answerOne == 2) redirectAnswer = "Ножницы";
-                if (answerOne == 3) redirectAnswer = "Бумага";
-                if (redirectAnswer.equals(arrayCount[indexCompAnswer])) {
-                    System.out.println(player + ": " + redirectAnswer + " | " + Field.comPlayer[index] + ": " + arrayCount[indexCompAnswer] + "   !НИЧЬЯ!");
-                    System.out.println(player + ": " + pointPlayer + pointWord);
-                    System.out.println(Field.comPlayer[index] + ": " + pointComputer + pointWordCom);
-                    System.out.println();
-                } else {
-                    System.out.println(player + ": " + redirectAnswer + " | " + Field.comPlayer[index] + ": " + arrayCount[indexCompAnswer]);
-                    System.out.println(player + ": " + pointPlayer + pointWord);
-                    System.out.println(Field.comPlayer[index] + ": " + pointComputer + pointWordCom);
-                    System.out.println();
+                if (answerOne == 1) GameLogic.redirectAnswer = "Камень";
+                if (answerOne == 2) GameLogic.redirectAnswer = "Ножницы";
+                if (answerOne == 3) GameLogic.redirectAnswer = "Бумага";
+                    if (GameLogic.redirectAnswer.equals(GameLogic.arrayCount[GameLogic.indexCompAnswer])) {
+                        System.out.println(player + ": " + GameLogic.redirectAnswer + " | " + Field.comPlayer[index] + ": " + GameLogic.arrayCount[GameLogic.indexCompAnswer] + "   !НИЧЬЯ!");
+                        System.out.println(player + ": " + GameLogic.pointPlayer + GameLogic.pointWord);
+                        System.out.println(Field.comPlayer[index] + ": " + GameLogic.pointComputer + GameLogic.pointWordCom);
+                        System.out.println();
+                    } else {
+                        System.out.println(player + ": " + GameLogic.redirectAnswer + " | " + Field.comPlayer[index] + ": " + GameLogic.arrayCount[GameLogic.indexCompAnswer]);
+                        System.out.println(player + ": " + GameLogic.pointPlayer + GameLogic.pointWord);
+                        System.out.println(Field.comPlayer[index] + ": " + GameLogic.pointComputer + GameLogic.pointWordCom);
+                        System.out.println();
+                    }
                 }
             }
         }
     }
-}
 
