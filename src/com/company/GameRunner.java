@@ -11,8 +11,14 @@ public class GameRunner {
 
     public static void main(String[] args) throws InterruptedException {
         Random random = new Random();
-        String[] comPlayer = {"Stan", "John", "Simon", "Holy", "Polly"};
-        int index = random.nextInt(4);
+        String[] comPlayer = {
+                "Sergio Mattarella",
+                "Kung av Sverige",
+                "Harald V",
+                "Felipe VI de Borbón y Grecia",
+                "Joseph Robinette Biden",
+                "習近平"};
+        int index = random.nextInt(5);
         String comGamer = "John";
         Scanner nameInput = new Scanner(System.in);
         System.out.print("Как Вас зовут? (введите имя ->) ");
@@ -72,7 +78,7 @@ public class GameRunner {
                 System.out.println("Ман...");
                 TimeUnit.SECONDS.sleep(1);
                 System.out.println("Джуз!...");
-                TimeUnit.SECONDS.sleep(3);
+                TimeUnit.SECONDS.sleep(2);
                 System.out.println("Выберите Ваш ответ!");
                     System.out.println();
                 System.out.println("1. Камень");
