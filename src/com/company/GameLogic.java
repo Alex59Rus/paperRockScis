@@ -1,22 +1,50 @@
-/*
 package com.company;
+import java.util.Random;
 
 public class GameLogic {
-        String paper = "Бумага";
-        String rock = "Камень";
-        String scissors = "Ножницы";
-        String[] arrayCount = {"Камень", "Бумага", "Ножницы"};
-        int pointComputer = 0;
-        int pointPlayer = 0;
-
-        if (pointComputer == 3) {
-            System.out.println("Я Вас победил. Не расстраивайтесь :(");
+    static String redirectAnswer = "";
+    static int pointComputer = 0;
+    static int pointPlayer = 0;
+    static String pointWord = "";
+    static String pointWordCom = "";
+    static String[] arrayCount = {"Камень", "Бумага", "Ножницы"};
+    static Random random = new Random();
+    static int indexCompAnswer = random.nextInt(3);
+    {
+        if (GameLogic.redirectAnswer == "Камень" && GameLogic.arrayCount[GameLogic.indexCompAnswer] == "Ножницы") {
+            GameLogic.pointPlayer++;
+        }
+        if (GameLogic.redirectAnswer == "Камень" && GameLogic.arrayCount[GameLogic.indexCompAnswer] == "Бумага") {
+            GameLogic.pointComputer++;
+        }
+        if (GameLogic.redirectAnswer == "Ножницы" && GameLogic.arrayCount[GameLogic.indexCompAnswer] == "Бумага") {
+            GameLogic.pointPlayer++;
+        }
+        if (GameLogic.redirectAnswer == "Ножницы" && GameLogic.arrayCount[GameLogic.indexCompAnswer] == "Камень") {
+            GameLogic.pointComputer++;
+        }
+        if (GameLogic.redirectAnswer == "Бумага" && GameLogic.arrayCount[GameLogic.indexCompAnswer] == "Камень") {
+            GameLogic.pointPlayer++;
+        }
+        if (GameLogic.redirectAnswer == "Бумага" && GameLogic.arrayCount[GameLogic.indexCompAnswer] == "Ножницы") {
+            GameLogic.pointComputer++;
+        }
+        {
+            if (GameLogic.pointComputer == 0) GameLogic.pointWordCom = " Очков";
+            if (GameLogic.pointComputer == 1) GameLogic.pointWordCom = " Очко";
+            if (GameLogic.pointComputer == 2 || GameLogic.pointComputer == 3) GameLogic.pointWordCom = " Очка";
+            if (GameLogic.pointPlayer == 0) GameLogic.pointWord = " Очков";
+            if (GameLogic.pointPlayer == 1) GameLogic.pointWord = " Очко";
+            if (GameLogic.pointPlayer == 2 || GameLogic.pointPlayer == 3) GameLogic.pointWord = " Очка";
+        }
+        if (GameLogic.pointComputer == 3) {
+            System.out.println("Я Вас победил, Не расстраивайтесь! :)");
             System.out.println("Хотите сыграть ещё?");
             System.out.println();
             System.out.println("1. Да");
             System.out.println("2. Нет");
         }
-        if (pointPlayer == 3) {
+        if (GameLogic.pointPlayer == 3) {
             System.out.println("Ваша заслуженная победа! Поздравляю!");
             System.out.println("Хотите сыграть ещё?");
             System.out.println();
@@ -24,34 +52,5 @@ public class GameLogic {
             System.out.println("2. Нет");
         }
     }
-*/
-/*Random random = new Random();
-        String[] comPlayer = {"Stan", "John", "Simon", "Holy", "Polly"};
-        int index = random.nextInt(4);
-        String comGamer = "John";
-        Scanner nameInput = new Scanner(System.in);
-        System.out.print("Как Вас зовут? (введите имя ->) ");
-        String player = nameInput.nextLine();
-        System.out.println("Привет," + player + " меня зовут " + comPlayer[index] + ".")*/
-/*
-String pointWord = "";
-        String pointWordCom = "";
+}
 
-        if (pointComputer == 0) {
-        pointWordCom = " Очков";
-        }
-        if (pointComputer == 1) {
-        pointWordCom = " Очко";
-        }
-        if (pointComputer == 2 || pointComputer == 3) {
-        pointWordCom = " Очка";
-        }
-        if (pointPlayer == 0) {
-        pointWord = " Очков";
-        }
-        if (pointPlayer == 1) {
-        pointWord = " Очко";
-        }
-        if (pointPlayer == 2 || pointPlayer == 3) {
-        pointWord = " Очка";
-        }*/
