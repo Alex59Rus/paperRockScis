@@ -51,21 +51,33 @@ public class GameLogic {
     }
     public String checkWinner() {
         if (field.getPlayerFigure() == ROCK && field.getBotFigure() == SCISSORS) {
+            System.out.println(field.getPlayerFigure());
+            System.out.println(field.getBotFigure());
             return " Игрок выиграл ";
         }
         if (field.getPlayerFigure() == ROCK && field.getBotFigure() == PAPER) {
+            System.out.println(field.getPlayerFigure());
+            System.out.println(field.getBotFigure());
             return " Компьютер выиграл ";
         }
         if (field.getPlayerFigure() == PAPER && field.getBotFigure() == SCISSORS) {
+            System.out.println(field.getPlayerFigure());
+            System.out.println(field.getBotFigure());
             return " Компьютер выиграл ";
         }
         if (field.getPlayerFigure() == PAPER && field.getBotFigure() == ROCK) {
+            System.out.println(field.getPlayerFigure());
+            System.out.println(field.getBotFigure());
             return " Игрок выиграл ";
         }
         if (field.getPlayerFigure() == SCISSORS && field.getBotFigure() == PAPER) {
+            System.out.println(field.getPlayerFigure());
+            System.out.println(field.getBotFigure());
             return " Игрок выиграл ";
         }
         if (field.getPlayerFigure() == SCISSORS && field.getBotFigure() == ROCK) {
+            System.out.println(field.getPlayerFigure());
+            System.out.println(field.getBotFigure());
             return " Компьютер выиграл ";
         }else {
             return " НИЧЬЯ! ";
