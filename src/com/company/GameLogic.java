@@ -80,8 +80,11 @@ public class GameLogic {
             System.out.println(field.getBotFigure());
             return " Компьютер выиграл ";
         }else {
+            System.out.println(field.getPlayerFigure());
+            System.out.println(field.getBotFigure());
             return " НИЧЬЯ! ";
         }
+
     }
 }
 
