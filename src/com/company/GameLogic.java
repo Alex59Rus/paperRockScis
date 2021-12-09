@@ -9,9 +9,7 @@ public class GameLogic {
     private static final String SCISSORS = "Ножницы";
     private static final String PAPER = "Бумага";
     private final Scanner scanner = new Scanner(System.in);
-    private final Random random = new Random();
-    int pointPlayer = 0;
-    int pointComputer = 0;
+    final Random random = new Random();
 
 
     public void start() {
@@ -25,22 +23,25 @@ public class GameLogic {
         }
         field.setPlayerFigure(userInput);
         field.setBotFigure(pcInput);
-        System.out.println(pointComputer);
+        System.out.println(checkWinner());
     }
+
     public String getUserInput() {
         System.out.println("Введите ваш выбор ");
         int input = scanner.nextInt();
-
-        return switch (input) {
-            case 1 -> ROCK;
-            case 2 -> SCISSORS;
-            case 3 -> PAPER;
-            default -> null;
-        };
+        switch (input) {
+            case 1:
+                return ROCK;
+            case 2:
+                return SCISSORS;
+            case 3:
+                return PAPER;
+            default:
+                return null;
+        }
     }
     public String generatePcInput() {
-
-        int pcInput = Math.random() * 3;
+        int pcInput = random.nextInt(3);
         return switch (pcInput) {
             case 1 -> ROCK;
             case 2 -> SCISSORS;
@@ -49,26 +50,26 @@ public class GameLogic {
         };
     }
     public String checkWinner() {
-        if (getUserInput() == ROCK && generatePcInput() == SCISSORS) {
-            pointPlayer++;
+        if (field.getPlayerFigure() == ROCK && field.getBotFigure() == SCISSORS) {
+            return " Игрок выиграл ";
         }
-        if (getUserInput() == ROCK && generatePcInput() == PAPER) {
-            pointComputer++;
+        if (field.getPlayerFigure() == ROCK && field.getBotFigure() == PAPER) {
+            return " Компьютер выиграл ";
         }
-        if (getUserInput() == PAPER && generatePcInput() == SCISSORS) {
-            pointComputer++;
+        if (field.getPlayerFigure() == PAPER && field.getBotFigure() == SCISSORS) {
+            return " Компьютер выиграл ";
         }
-        if (getUserInput() == PAPER && generatePcInput() == ROCK) {
-            pointPlayer++;
+        if (field.getPlayerFigure() == PAPER && field.getBotFigure() == ROCK) {
+            return " Игрок выиграл ";
         }
-        if (getUserInput() == SCISSORS && generatePcInput() == PAPER) {
-            pointPlayer++;
+        if (field.getPlayerFigure() == SCISSORS && field.getBotFigure() == PAPER) {
+            return " Игрок выиграл ";
         }
-        if (getUserInput() == SCISSORS && generatePcInput() == ROCK) {
-            pointComputer++;
-        }
-        if (getUserInput() == generatePcInput()) {
+        if (field.getPlayerFigure() == SCISSORS && field.getBotFigure() == ROCK) {
+            return " Компьютер выиграл ";
+        }else {
             return " НИЧЬЯ! ";
         }
     }
 }
+
